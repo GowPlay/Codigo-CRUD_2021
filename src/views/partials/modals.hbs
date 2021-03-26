@@ -1,0 +1,200 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+  integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+<body>
+  <!-- Button trigger modal -->
+
+
+  <!-- Modal  01 Add articulo -->
+  <div class="modal fade" id="AddArticuloModal" tabindex="-1" aria-labelledby="AddArticuloModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="AddArticuloModalLabel">Articulo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <center>
+            <h2 style="color: rgb(2, 2, 2); font-size: 40px; font-family: 'Courier New', Courier, monospace;">
+              Creacion de articulo
+            </h2>
+          </center>
+
+          <form action="/support/addarticulo" method="POST">
+            <div class="form-group">
+              <input type="text" name="title" class="form-control" placeholder="title" autofocus>
+            </div>
+            <div class="form-group">
+              <textarea name="descript" rows="4" class="form-control" placeholder="Description"></textarea>
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-success btn-block">
+                Save
+              </button>
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal  02 List Articulo-->
+  <div class="modal fade" id="ListArticuloModal" tabindex="-1" aria-labelledby="ListArticuloModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ListArticuloModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+          <div class="row">
+            {{#each Articulos}}
+              <div class="col-4">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{title}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{hora}}</h6>
+                  <p class="card-text">{{ descript}}</p>
+                  <a href="/support/deleteArticulo/{{id}}" class="btn btn-danger d-block">Eliminar</a>
+                  <hr>
+                  <a href="/support/editArticulo/{{id}}" class="btn btn-success d-block">Editar</a>
+                </div>
+              </div>
+            </div>
+            {{else}}
+            <div class="col-4">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">sin articulos </h5>
+                  <p class="card-text">
+                    Aun no se tiene articulos creados para mostrar
+                  </p>
+                  <hr>
+                </div>
+              </div>
+            </div>
+           
+            {{/each}}
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal  03 Ultimos Articulos-->
+  <div class="modal fade" id="ArticulosModal" tabindex="-1" aria-labelledby="ArticulosModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ArticulosModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+           {{#each UltArticulos}}
+              <div class="col-4">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{title}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{hora}}</h6>
+                  <p class="card-text">{{ descript}}</p>
+                  <a href="/support/deleteArticulo/{{id}}" class="btn btn-danger d-block">Eliminar</a>
+                  <hr>
+                  <a href="/support/editArticulo/{{id}}" class="btn btn-success d-block">Editar</a>
+                </div>
+              </div>
+            </div>
+           {{else}}
+            <div class="col-4">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">sin articulos </h5>
+                  <p class="card-text">
+                    Aun no se tiene articulos creados para mostrar
+                  </p>
+                  <hr>
+                </div>
+              </div>
+            </div>
+           {{/each}}
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Mensajes-->
+  <div class="modal fade" id="MensageModal" tabindex="-1" aria-labelledby="MensageModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="MensageModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            {{#each ListMensajes}}                       
+            <div class="col-4">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{nombre}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{hora}}</h6>
+                  <p class="card-text">{{correo}}</p>
+                  <textarea cols="30" rows="10" disabled>{{description}}</textarea>
+                  <a href="/support/deleteMensaje/{{id}}" class="btn btn-danger d-block">Eliminar</a>
+                  <hr>
+                </div>
+              </div>
+            </div>
+            {{else}}
+            <div class="col">
+              <center>
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">sin Mensajes </h5>
+                    <p class="card-text">
+                      Aun no se tienes mensajes para mostrar
+                    </p>
+                    <hr>
+                  </div>
+                </div>
+              </center>
+            </div>
+           
+            {{/each}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>

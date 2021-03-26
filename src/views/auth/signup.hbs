@@ -1,0 +1,67 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+{{>nav_dos}}
+
+<body>
+    <!-- Background image for card set in CSS! -->
+<div>
+    {{#each user}}
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3> Error ya existe un administrador creado</h3>
+                        <a href="/" class="btn btn-primary m-4">
+                            VOLVER AL INICIO
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {{else}}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <br>
+                <h5 class="card-title text-center" id="register">REGISTRO DE USUARIO</h5>
+                <hr>
+                <form action="/req/signup" method="POST">
+                    <div class="mb-3">
+                        <input type="text" name="username" placeholder="Username" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" name="password" placeholder="Password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" name="apellido" placeholder="Apellido" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="number" name="Documento" placeholder="Documento" class="form-control">
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <button class="btn btn-success btn-block">
+                            SingIn
+                        </button>
+                    </div>
+                    <div class="mb-3">
+
+                        <hr>
+                        <a href="/" class="btn btn-info d-block "> Inicio</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+</body>
